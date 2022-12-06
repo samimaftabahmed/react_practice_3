@@ -3,10 +3,17 @@ import Genre from "./genre";
 
 class GenreList extends Component {
   state = {};
+
   render() {
+    const { genres } = this.props;
+    const genresArr = Array.from(genres);
+    let i = 0;
     return (
       <div className="list-group">
-        <Genre />
+        {genresArr.map((g) => (
+          <Genre genreName={g} key={++i} />
+        ))}
+
         {/* <a
           href="#"
           class="list-group-item list-group-item-action active"

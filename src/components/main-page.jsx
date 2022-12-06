@@ -2,9 +2,19 @@ import React, { Component } from "react";
 import DataGrid from "./grid/data-grid";
 import GenreList from "./genre/genre-list";
 import Pagination from "./pagination/pagination_parent";
+import { getMovies } from "../services/movie-data";
 
 class MainPage extends Component {
-  state = {};
+  state = {
+    movies: getMovies(),
+  };
+
+  constructor() {
+    super();
+    this.genres = new Set();
+    this.populateGenres();
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -13,7 +23,7 @@ class MainPage extends Component {
         <div className="container">
           <div className="row">
             <div className="col-3">
-              <GenreList />
+              <GenreList genres={this.genres} />
             </div>
             {/* div.col-3 closed */}
             <div className="col-9">
@@ -32,6 +42,15 @@ class MainPage extends Component {
         </div>
       </React.Fragment>
     );
+  }
+
+  populateGenres() {
+    this.state.movies.forEach((m) => {
+      const genreSplit = m.Genre.split(",");
+      genreSplit.forEach((g) => {
+        this.genres.add(g.trim());
+      });
+    });
   }
 }
 
