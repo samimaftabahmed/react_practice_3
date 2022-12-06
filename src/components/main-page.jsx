@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DataGrid from "./Grid/data-grid";
+import DataGrid from "./grid/data-grid";
 import GenreList from "./genre/genre-list";
 import Pagination from "./pagination/pagination_parent";
 
