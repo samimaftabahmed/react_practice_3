@@ -10,8 +10,8 @@ class GenreList extends Component {
     let i = 0;
     return (
       <div className="list-group">
-        {genresArr.map((g) => (
-          <Genre genreName={g} key={++i} />
+        {genresArr.map((genre) => (
+          <Genre genreName={genre} key={++i} />
         ))}
 
         {/* <a

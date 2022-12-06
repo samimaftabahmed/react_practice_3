@@ -45,10 +45,10 @@ class MainPage extends Component {
   }
 
   populateGenres() {
-    this.state.movies.forEach((m) => {
-      const genreSplit = m.Genre.split(",");
-      genreSplit.forEach((g) => {
-        this.genres.add(g.trim());
+    getMovies().forEach((movie) => {
+      const genreSplit = movie.Genre.split(",");
+      genreSplit.forEach((genre) => {
+        this.genres.add(genre.trim());
       });
     });
   }
