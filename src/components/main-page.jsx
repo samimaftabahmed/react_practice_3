@@ -20,13 +20,15 @@ class MainPage extends Component {
       <React.Fragment>
         <br />
         <br />
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
-            <div className="col-3">
+            <div className="col-1">
+              <h3>Genres</h3>
               <GenreList genres={this.genres} />
             </div>
             {/* div.col-3 closed */}
-            <div className="col-9">
+            <div className="col-11">
+              <h3>Movies</h3>
               <DataGrid />
             </div>
             {/* div.col-9 closed */}
