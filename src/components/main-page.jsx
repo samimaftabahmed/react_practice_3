@@ -19,7 +19,6 @@ class MainPage extends Component {
     return (
       <React.Fragment>
         <br />
-        <br />
         <div className="container-fluid">
           <div className="row">
             <div className="col-1">

@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import Page from "./page";
 import _ from "lodash";
 class Pagination extends Component {
-  state = {};
+  state = {
+    currentPage: 1,
+  };
   render() {
     const { pageSize, totalElements } = this.props;
     const totalPages = Math.ceil(totalElements / pageSize);
@@ -14,8 +16,9 @@ class Pagination extends Component {
           {pages.map((pageNo) => (
             <Page
               key={pageNo}
-              number={pageNo}
+              pageNo={pageNo}
               onPageChange={this.handlePageChange}
+              currentPage={this.state.currentPage}
             />
           ))}
         </ul>
@@ -25,6 +28,7 @@ class Pagination extends Component {
 
   handlePageChange = (pageNo) => {
     console.log("Page No:", pageNo);
+    this.setState({ currentPage: pageNo });
   };
 }
 
