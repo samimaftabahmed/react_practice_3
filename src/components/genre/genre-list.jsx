@@ -6,11 +6,10 @@ class GenreList extends Component {
 
   render() {
     const { genres } = this.props;
-    const genresArr = Array.from(genres);
     let i = 0;
     return (
       <div className="list-group">
-        {genresArr.map((genre) => (
+        {Array.from(genres).map((genre) => (
           <Genre genreName={genre} key={++i} />
         ))}
 
