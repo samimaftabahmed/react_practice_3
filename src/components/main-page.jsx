@@ -29,7 +29,7 @@ class MainPage extends Component {
             {/* div.col-3 closed */}
             <div className="col-11">
               <h3>Movies</h3>
-              <DataGrid />
+              <DataGrid movies={this.state.movies} />
             </div>
             {/* div.col-9 closed */}
           </div>
@@ -38,7 +38,10 @@ class MainPage extends Component {
           <br />
           <div className="row">
             <div className="col-4 offset-5">
-              <Pagination />
+              <Pagination
+                pageSize={5}
+                totalElements={this.state.movies.length}
+              />
             </div>
           </div>
         </div>
