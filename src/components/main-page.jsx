@@ -3,10 +3,12 @@ import DataGrid from "./grid/data-grid";
 import GenreList from "./genre/genre-list";
 import Pagination from "./pagination/pagination_parent";
 import { getMovies } from "../services/movie-data";
+import _ from "lodash";
 
 class MainPage extends Component {
   state = {
     movies: getMovies(),
+    currentPage: 1,
   };
 
   constructor() {
@@ -16,6 +18,13 @@ class MainPage extends Component {
   }
 
   render() {
+    const pageSize = 5;
+    const paginatedMovies = this.getPaginatedData(
+      this.state.currentPage,
+      pageSize,
+      [...getMovies()]
+    );
+
     return (
       <React.Fragment>
         <br />
@@ -28,7 +37,7 @@ class MainPage extends Component {
             {/* div.col-3 closed */}
             <div className="col-11">
               <h3>Movies</h3>
-              <DataGrid movies={this.state.movies} />
+              <DataGrid movies={paginatedMovies} />
             </div>
             {/* div.col-9 closed */}
           </div>
@@ -38,8 +47,10 @@ class MainPage extends Component {
           <div className="row">
             <div className="col-4 offset-5">
               <Pagination
-                pageSize={5}
-                totalElements={this.state.movies.length}
+                pageSize={pageSize}
+                totalElements={getMovies().length}
+                onPageClick={this.handlePaginatedData}
+                currentPage={this.state.currentPage}
               />
             </div>
           </div>
@@ -55,6 +66,17 @@ class MainPage extends Component {
         this.genres.add(genre.trim());
       });
     });
+  }
+
+  handlePaginatedData = (pageNo, pageSize) => {
+    const movies = [...getMovies()];
+    const paginated_movies = this.getPaginatedData(pageNo, pageSize, movies);
+    this.setState({ movies: paginated_movies, currentPage: pageNo });
+  };
+
+  getPaginatedData(pageNo, pageSize, movies) {
+    const startIndex = (pageNo - 1) * pageSize;
+    return _(movies).slice(startIndex).take(pageSize).value();
   }
 }
 
