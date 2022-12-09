@@ -6,7 +6,7 @@ class Page extends Component {
     const { pageNo, onPageChange, currentPage } = this.props;
     return (
       <li className={this.getPageClasses(pageNo, currentPage)}>
-        <a className="page-link" onClick={() => onPageChange(pageNo)}>
+        <a className="page-link" href="/#" onClick={() => onPageChange(pageNo)}>
           {pageNo}
         </a>
       </li>

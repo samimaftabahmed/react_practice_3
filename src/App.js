@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import "./App.css";
 import MainPage from "./components/main-page";
 import "bootstrap/dist/css/bootstrap.css";
 

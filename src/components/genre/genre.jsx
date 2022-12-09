@@ -5,7 +5,7 @@ class Genre extends Component {
   render() {
     const { genreName } = this.props;
     return (
-      <a href="#" className="list-group-item list-group-item-action">
+      <a href="/#" className="list-group-item list-group-item-action">
         {genreName}
       </a>
     );
