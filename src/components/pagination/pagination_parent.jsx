@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Page from "./page";
 import _ from "lodash";
+import PropTypes from "prop-types";
 
 class Pagination extends Component {
   state = {};
@@ -25,5 +26,13 @@ class Pagination extends Component {
     );
   }
 }
+
+// PropTypes used for type checking in development mode. Good practice to include these.
+Pagination.propTypes = {
+  pageSize: PropTypes.number.isRequired,
+  totalElements: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  onPageClick: PropTypes.func.isRequired,
+};
 
 export default Pagination;
