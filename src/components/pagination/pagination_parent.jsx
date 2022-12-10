@@ -10,20 +10,25 @@ class Pagination extends Component {
     const totalPages = Math.ceil(totalElements / pageSize);
     const pages = _.range(1, totalPages + 1);
 
-    return (
-      <nav aria-label="Page navigation example">
-        <ul className="pagination">
-          {pages.map((pageNo) => (
-            <Page
-              key={pageNo}
-              pageNo={pageNo}
-              onPageChange={() => onPageClick(pageNo, pageSize)}
-              currentPage={currentPage}
-            />
-          ))}
-        </ul>
-      </nav>
-    );
+    if (totalElements <= pageSize) {
+      // Hides pagination
+      return null;
+    } else {
+      return (
+        <nav aria-label="Page navigation example">
+          <ul className="pagination">
+            {pages.map((pageNo) => (
+              <Page
+                key={pageNo}
+                pageNo={pageNo}
+                onPageChange={() => onPageClick(pageNo, pageSize)}
+                currentPage={currentPage}
+              />
+            ))}
+          </ul>
+        </nav>
+      );
+    }
   }
 }
 

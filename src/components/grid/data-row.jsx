@@ -12,7 +12,6 @@ class DataRow extends Component {
         <td>{genre}</td>
         <td>{imdbRating}</td>
         <td>{type}</td>
-        <td>@mdo</td>
       </tr>
     );
   }

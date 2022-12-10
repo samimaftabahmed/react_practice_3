@@ -16,7 +16,6 @@ class DataGrid extends Component {
             <th scope="col">Genre</th>
             <th scope="col">imdbRating</th>
             <th scope="col">Type</th>
-            <th scope="col">Liked</th>
           </tr>
         </thead>
         <tbody>
