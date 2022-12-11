@@ -37,10 +37,11 @@ class MainPage extends Component {
       // React.Fragment alternative is <> content </>
       <>
         <br />
-        <div className="container-fluid">
+        <div className="container">
           <div className="row">
-            <div className="col-1">
+            <div className="col-2">
               <h3>Genres</h3>
+              Total genres {this.genres.size}
               <GenreList
                 genres={this.genres}
                 selectedGenre={this.state.selectedGenre}
@@ -48,8 +49,9 @@ class MainPage extends Component {
               />
             </div>
             {/* div.col-3 closed */}
-            <div className="col-11">
-              <h3>Movies</h3>Total movies available {this.state.movies.length}
+            <div className="col-10">
+              <h3>Movies</h3>
+              Total movies available {this.state.movies.length}
               <DataGrid movies={paginatedMovies} />
             </div>
             {/* div.col-9 closed */}
