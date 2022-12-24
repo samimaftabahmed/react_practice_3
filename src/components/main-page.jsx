@@ -9,7 +9,7 @@ class MainPage extends Component {
   state = {
     movies: [],
     currentPage: 1,
-    selectedGenre: "",
+    selectedGenre: "All Genres",
   };
 
   constructor() {
